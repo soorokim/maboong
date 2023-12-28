@@ -1,12 +1,19 @@
-import { Grid } from "./components/grid";
+import { Grid } from "@/components/grid";
+import { SiteItem } from "@/components/site-item";
+import { Database } from "@/lib/database.types";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-export default function Home() {
+export default async function Home() {
+  const supabase = createClientComponentClient<Database>();
+  const response = await supabase.from("\buser_site").select();
+
+  if (response.error) return;
   return (
     <main className="">
       <Grid>
-        <div className="w-full aspect-square bg-red-500"></div>
-        <div className="w-full aspect-square bg-blue-500"></div>
-        <div className="w-full aspect-square bg-green-500"></div>
+        {response.data.map((item) => (
+          <SiteItem key={item.id} item={item} />
+        ))}
       </Grid>
     </main>
   );
