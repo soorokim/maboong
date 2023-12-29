@@ -4,9 +4,12 @@ import { Database } from "@/lib/database.types";
 
 const getItems = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/user-site", {
-      method: "get",
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/user-site`,
+      {
+        method: "get",
+      }
+    );
     if (!response.ok) {
       return [];
     }
