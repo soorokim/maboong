@@ -7,8 +7,11 @@ type Props = {
 
 export const SiteItem = ({ item }: Props) => {
   return (
-    <Link className="w-full aspect-square bg-orange-500" href={item.url}>
-      <div className=" border-blue-300">{item.title}</div>
+    <Link
+      className="gradation-button w-full aspect-square whitespace-pre-wrap bg-[#34495e] p-2 rounded-xl flex justify-center items-center "
+      href={item.url}
+    >
+      <p className="font-sans text-center text-white text-bold">{item.title}</p>
     </Link>
   );
 };
