@@ -9,7 +9,7 @@ export default async function Home() {
   const { error, data } = await supabase.from("UserSite").select();
   if (error) return;
   return (
-    <main className="">
+    <main>
       <Grid>
         {data.map((item) => (
           <SiteItem key={item.id} item={item} />
