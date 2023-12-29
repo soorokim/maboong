@@ -9,7 +9,25 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      DailyTask: {
+      boss_daily: {
+        Row: {
+          difficulty: string | null
+          id: number
+          name: string | null
+        }
+        Insert: {
+          difficulty?: string | null
+          id?: number
+          name?: string | null
+        }
+        Update: {
+          difficulty?: string | null
+          id?: number
+          name?: string | null
+        }
+        Relationships: []
+      }
+      task_daily: {
         Row: {
           created_at: string
           id: number
@@ -30,7 +48,70 @@ export interface Database {
         }
         Relationships: []
       }
-      TodoList: {
+      task_montly: {
+        Row: {
+          created_at: string
+          id: number
+          name: string
+          term: Database["public"]["Enums"]["Term"][]
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name: string
+          term: Database["public"]["Enums"]["Term"][]
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string
+          term?: Database["public"]["Enums"]["Term"][]
+        }
+        Relationships: []
+      }
+      task_weekly_1: {
+        Row: {
+          created_at: string
+          id: number
+          name: string
+          term: Database["public"]["Enums"]["Term"][]
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name: string
+          term: Database["public"]["Enums"]["Term"][]
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string
+          term?: Database["public"]["Enums"]["Term"][]
+        }
+        Relationships: []
+      }
+      task_weekly_2: {
+        Row: {
+          created_at: string
+          id: number
+          name: string
+          term: Database["public"]["Enums"]["Term"][]
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name: string
+          term: Database["public"]["Enums"]["Term"][]
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string
+          term?: Database["public"]["Enums"]["Term"][]
+        }
+        Relationships: []
+      }
+      todo_list: {
         Row: {
           category: Database["public"]["Enums"]["Category"]
           created_at: string
@@ -57,23 +138,29 @@ export interface Database {
         }
         Relationships: []
       }
-      UserSite: {
+      user_site: {
         Row: {
+          check: boolean
           created_at: string
+          description: string | null
           id: number
           img: string | null
           title: string
           url: string
         }
         Insert: {
+          check?: boolean
           created_at?: string
+          description?: string | null
           id?: number
           img?: string | null
           title: string
           url: string
         }
         Update: {
+          check?: boolean
           created_at?: string
+          description?: string | null
           id?: number
           img?: string | null
           title?: string
