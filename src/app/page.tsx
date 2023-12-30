@@ -19,6 +19,7 @@ const getItems = async () => {
     return [] as Database["public"]["Tables"]["user_site"]["Row"][];
   }
 };
+
 export default async function Home() {
   const items = await getItems();
   return (

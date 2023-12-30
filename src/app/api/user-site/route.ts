@@ -1,8 +1,9 @@
 import { createClient } from "@/utils/supabase/server";
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { load } from "cheerio";
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+
+export const revalidate = 60;
 
 export async function GET() {
   const cookieStore = cookies();
@@ -44,6 +45,7 @@ export async function GET() {
             .eq("id", item.id);
           return { ...item };
         } catch (e) {
+          console.log(e);
           await supabase
             .from("user_site")
             .update({
