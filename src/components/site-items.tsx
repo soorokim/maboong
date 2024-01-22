@@ -10,15 +10,13 @@ export const SiteItems = ({
 }: {
   initialData: Database["public"]["Tables"]["user_site"]["Row"][];
 }) => {
-  const { data: items } = useQuery({
-    queryKey: ["user-sites"],
-    queryFn: getItems,
-    initialData: initialData,
-  });
-
-  if (!items) return;
+  if (!initialData) return;
 
   return (
-    <>{items.map((item) => item && <SiteItem key={item.id} item={item} />)}</>
+    <>
+      {initialData.map(
+        (item) => item && <SiteItem key={item.id} item={item} />
+      )}
+    </>
   );
 };
