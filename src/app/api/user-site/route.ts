@@ -3,7 +3,7 @@ import { load } from "cheerio";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   const cookieStore = cookies();
@@ -66,5 +66,5 @@ export async function GET() {
   );
   const items = temps.filter(Boolean);
 
-  return NextResponse.json(items.sort((a, b) => b!.id - a!.id));
+  return NextResponse.json(items.sort((a, b) => a!.id - b!.id));
 }
