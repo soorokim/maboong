@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/maboong/_next/static/:path*",
-      "destination": "/_next/static/:path*"
-    }
-  ]
-}
