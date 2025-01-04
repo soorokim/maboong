@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/maboong/_static/:path*",
+      "source": "/maboong/_next/static/:path*",
       "destination": "/_next/static/:path*"
     }
   ]
